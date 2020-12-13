@@ -1,22 +1,7 @@
-from psychopy import core, visual, gui
+from psychopy import visual, gui
 import pathlib
 import utils
 import sys
-
-#TODO fix dictionary of expinfo
-#TODO ask jan about images dog, orientation and direction
-#TODO upsample images
-#TODO monitor in param_stim
-#TODO alternative
-# save all stimuli_id in order of presentation (before starting to present them)
-# collect timestamps and save them in a list
-# save a list of timestamps
-
-#TODO translate dictionary in a smoller object
-# each frame turn dict into number
-# have a list of number
-# a) save list of number as json
-# b) decode save
 
 #get experiment and monitor infos
 expInfo, monInfo = utils.setup_exp()
