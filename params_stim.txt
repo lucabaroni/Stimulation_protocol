@@ -1,0 +1,14 @@
+{
+    "stim_duration": 0.1,
+    "blank_duration": 0,
+
+    "size_of_stimuli" : 10,
+
+    "images_path": "./images/life_of_animals",
+    "Nrepeated": 40,
+    "Nunique": 60,
+
+    "sf_grating": [0.01, 0.02, 0.04, 0.08, 0.16, 0.32],
+    "Nori_grating": 16
+}
+
