@@ -1,12 +1,12 @@
 # Stimulation_protocol
 
-##Overview of the stimulation
+## Overview of the stimulation
 Each stimulation protocol consists in the presentation of a set of natural images and of drifting grating stimuli.
 * Each drifting grating stimuli is presented 10 times. 
 * A subset of the images is presented 10 times (repeated images)
 * The rest of the images are presented only once (unique images)
 
-######_(temporary solution, later this will change)_ 
+###### _(temporary solution, later this will change)_ 
 To simplify the experimental procedure the experiment 
 is divided in 10 section.
 * The same repeated images and drifting grating stimuli are presented once in every section of the experiment, so that
