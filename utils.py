@@ -32,7 +32,7 @@ def setup_exp():
     myDlg.addField('date', date.today().strftime("%d-%m-%Y"))
     myDlg.addField('section', choices=list(np.arange(10) + 1))
     myDlg.addField('monitor', monInfo['name'])
-    myDlg.addField('distance', monInfo['distance'])
+    myDlg.addField('distance in cm', monInfo['distance'])
     expInfo = myDlg.show()  # show dialog and wait for OK or Cancel
     if myDlg.OK:  # or if ok_data is not None
         pass
