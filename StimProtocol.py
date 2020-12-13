@@ -1,6 +1,7 @@
 from psychopy import core, visual, gui
 import pathlib
 import utils
+import sys
 
 #TODO fix dictionary of expinfo
 #TODO ask jan about images dog, orientation and direction
@@ -51,21 +52,18 @@ while section <= 10:
     print('Number of dropped frames =', win.nDroppedFrames)
     win.close()
 
-    if section == 10: core.quit()
-
-
+    section += 1
     # ask if proceding to next section or stop
-    section+= 1
-    sectionDlg= gui.Dlg(title="Stimulation experiment")
-    sectionDlg.addField('Continue with section:', section)
-    Info = sectionDlg.show()  # show dialog and wait for OK or Cancel
-    if sectionDlg.OK:  # or if ok_data is not None
-        section = int(Info[0])
-    else:
-        core.quit()
+    if section != 11:
+        sectionDlg= gui.Dlg(title="Stimulation experiment")
+        sectionDlg.addField('Continue with section:', section)
+        Info = sectionDlg.show()  # show dialog and wait for OK or Cancel
+        if sectionDlg.OK:  # or if ok_data is not None
+            section = int(Info[0])
+        else:
+            sys.exit()
 
 # import matplotlib.pyplot as plt
 # plt.plot(win.frameIntervals)
 # plt.show()
 
-core.quit()

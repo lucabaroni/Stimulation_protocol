@@ -5,6 +5,7 @@ import json
 import glob
 import os
 import numpy as np
+import sys
 
 def SignFunc(frameInfo, clock):
     frameInfo["timestamps"].append(clock.getTime())
@@ -132,14 +133,14 @@ def display_stimuli(data_path, win, stim_df, params_stim, MySignFunc):
                 frameInfo['rep'].append(row['rep'])
                 frameInfo['stim_id'].append(row['stim_id'])
                 if len(event.getKeys()) > 0:
-                    core.quit()
+                    sys.exit()
             for frame in range(params_stim['Nf_blank']):
                 win.callOnFlip(MySignFunc, frameInfo, clock)
                 win.flip()
                 frameInfo['stim_id'].append('blank')
                 frameInfo['rep'].append(0)
                 if len(event.getKeys()) > 0:
-                    core.quit()
+                    sys.exit()
         print('duration of section', clock.getTime())
         data2jsonfile(os.path.join(data_path + "/frameInfo.json"), frameInfo)
         return
