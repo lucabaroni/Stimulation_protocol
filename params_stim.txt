@@ -2,7 +2,7 @@
     "stim_duration": 0.5,
     "blank_duration": 0,
 
-    "images_path": "./images/life_of_animals",
+    "images_path": "./images/BBC_life_of_animals",
     "Nrepeated": 40,
     "Nunique": 59,
 
