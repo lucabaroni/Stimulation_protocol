@@ -81,24 +81,35 @@ def get_mon_info(mon):
                }
     return monInfo
 
+def create_fullscreen_image_stimulus(win, path):
+    stim = visual.ImageStim(win, image=path)
+    if stim.size[0] > stim.size[1]:
+        scale = 2/stim.size[1]
+    else:
+        scale = 2/stim.size[0]
+    stim.size *= scale
+    return stim
+
 def create_stimuli(win, part_of_exp, params_stim):
     Nrepeated = params_stim['Nrepeated']
     Nunique = params_stim['Nunique']
     ori_grating = params_stim['ori_grating']
     sf_grating = params_stim['sf_grating']
-    size = params_stim['size_of_stimuli']
-    path = params_stim['images_path']
+    size_grating = params_stim['size_grating']
+    path_images = params_stim['images_path']
+
 
     # create images stimuli
-    images_r = glob.glob(path + '/*.tif')[0:Nrepeated]
-    stim_r = [visual.ImageStim(win, image=i, units='deg', size=size) for i in images_r]
+    # repeated across sections
+    images_r = glob.glob(path_images + '/*.tif')[0:Nrepeated]
+    stim_r = [create_fullscreen_image_stimulus(win, i) for i in images_r]
     rep_r = [1 for i in images_r]
-    images_u = glob.glob(path + '/*.tif')[Nrepeated + (part_of_exp-1)*Nunique:Nrepeated + part_of_exp*Nunique]
-    stim_u = [visual.ImageStim(win, image=i, units='deg', size=size) for i in images_u]
+    #unique across sections
+    images_u = glob.glob(path_images + '/*.tif')[Nrepeated + (part_of_exp-1)*Nunique:Nrepeated + part_of_exp*Nunique]
+    stim_u = [create_fullscreen_image_stimulus(win, i) for i in images_u]
     rep_u = [0 for i in images_u]
-
     # create grating stimuli
-    stim_g = [visual.GratingStim(win, units='deg', sf=sf, ori=ori, size=size) for sf in sf_grating for ori in ori_grating]
+    stim_g = [visual.GratingStim(win, units='deg', sf=sf, ori=ori, size=size_grating) for sf in sf_grating for ori in ori_grating]
     g_id = [[sf,ori] for sf in sf_grating for ori in ori_grating]
     rep_g = [1 for i in g_id]
 

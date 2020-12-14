@@ -37,6 +37,7 @@ Firstly set the parameters in `params_stim.txt` according to needs.
 
     "sf_grating": [0.01, 0.02, 0.04, 0.08, 0.16, 0.32], #spatial frequency of grating stimuli in cycles per degree
     "Nori_grating": 16 # number of different orientation of visual stimuli
+    "size_grating" : 200 # temporarely needs to be adjusted by hand to have fullscreen grating stimuli (units=deg)
 }
 ```
 
